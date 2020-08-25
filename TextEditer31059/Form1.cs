@@ -72,26 +72,12 @@ namespace TextEditer31059
 
         private void UndoUToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (rtTextArea.CanUndo == true)
-            {
                 rtTextArea.Undo();
-                if (rtTextArea.CanUndo == false)
-                {
-                    UndoUToolStripMenuItem.Enabled = false;
-                }
-            }
         }
 
         private void RedoRToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (rtTextArea.CanRedo == true)
-            {
                 rtTextArea.Redo();
-                if (rtTextArea.CanRedo == false)
-                {
-                    RedoRToolStripMenuItem.Enabled = false;
-                }
-            }
         }
 
         private void CutoutTToolStripMenuItem_Click(object sender, EventArgs e)
