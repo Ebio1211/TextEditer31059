@@ -30,6 +30,7 @@ namespace TextEditer31059
             using (StreamWriter sw = new StreamWriter(fileName, false, Encoding.GetEncoding("utf-8")))
             {
                 sw.WriteLine(rtTextArea.Text);
+                this.fileName = sfdFileSave.FileName;
             }
         }
 
@@ -40,8 +41,6 @@ namespace TextEditer31059
                 FileSave(sfdFileSave.FileName);
             }
         }
-
-        
 
         private void OpenOToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -64,10 +63,67 @@ namespace TextEditer31059
                 SaveNameAToolStripMenuItem_Click(sender, e);
             }
         }
-
+        //新規作成
         private void NewNToolStripMenuItem_Click(object sender, EventArgs e)
         {
+                rtTextArea.Clear();
+                this.fileName = "";
+        }
 
+        private void UndoUToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rtTextArea.CanUndo == true)
+            {
+                rtTextArea.Undo();
+                if (rtTextArea.CanUndo == false)
+                {
+                    UndoUToolStripMenuItem.Enabled = false;
+                }
+            }
+        }
+
+        private void RedoRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rtTextArea.CanRedo == true)
+            {
+                rtTextArea.Redo();
+                if (rtTextArea.CanRedo == false)
+                {
+                    RedoRToolStripMenuItem.Enabled = false;
+                }
+            }
+        }
+
+        private void CutoutTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtTextArea.Cut();
+        }
+
+        private void PastingPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtTextArea.Paste();
+        }
+
+        private void CopyCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtTextArea.Copy();
+        }
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        //編集メニュー項目内のマスク処理
+        private void EditEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataFormats.Format myFormat = DataFormats.GetFormat(DataFormats.Rtf);
+            UndoUToolStripMenuItem.Enabled = rtTextArea.CanUndo;
+            RedoRToolStripMenuItem.Enabled = rtTextArea.CanRedo;
+            CutoutTToolStripMenuItem.Enabled = rtTextArea.SelectionLength > 0;
+            CopyCToolStripMenuItem.Enabled = rtTextArea.SelectionLength > 0;
+            //PastingPToolStripMenuItem.Enabled = rtTextArea.CanPaste(myFormat) ? true : false;
+            PastingPToolStripMenuItem.Enabled = Clipboard.GetDataObject().GetDataPresent(DataFormats.Rtf);
         }
     }
 }
