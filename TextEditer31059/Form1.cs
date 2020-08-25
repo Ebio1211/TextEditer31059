@@ -13,6 +13,7 @@ namespace TextEditer31059
 {
     public partial class Form1 : Form
     {
+        private string fileName = "";
         public Form1()
         {
             InitializeComponent();
@@ -24,16 +25,23 @@ namespace TextEditer31059
             Application.Exit();
         }
 
+        private void FileSave(string fileName)
+        {
+            using (StreamWriter sw = new StreamWriter(fileName, false, Encoding.GetEncoding("utf-8")))
+            {
+                sw.WriteLine(rtTextArea.Text);
+            }
+        }
+
         private void SaveNameAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (sfdFileSave.ShowDialog() == DialogResult.OK)
             {
-                using(StreamWriter sw = new StreamWriter(sfdFileSave.FileName, false, Encoding.GetEncoding("utf-8")))
-                {
-                    sw.WriteLine(rtTextArea.Text);
-                }
+                FileSave(sfdFileSave.FileName);
             }
         }
+
+        
 
         private void OpenOToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -44,6 +52,22 @@ namespace TextEditer31059
                     rtTextArea.Text = sr.ReadToEnd();
                 }
             }
+        }
+
+        private void SaveSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.fileName != "")
+            {
+                FileSave(fileName);
+            } else
+            {
+                SaveNameAToolStripMenuItem_Click(sender, e);
+            }
+        }
+
+        private void NewNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
