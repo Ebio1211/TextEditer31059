@@ -19,19 +19,16 @@ namespace TextEditer31059
             InitializeComponent();
         }
 
-        private void ExitXToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //アプリ終了
-            Application.Exit();
-        }
+
 
         private void FileSave(string fileName)
         {
-            using (StreamWriter sw = new StreamWriter(fileName, false, Encoding.GetEncoding("utf-8")))
+            rtTextArea.SaveFile(fileName,RichTextBoxStreamType.RichText);
+            /*using (StreamWriter sw = new StreamWriter(fileName, false, Encoding.GetEncoding("utf-8")))
             {
                 sw.WriteLine(rtTextArea.Text);
                 this.fileName = sfdFileSave.FileName;
-            }
+            }*/
         }
 
         private void SaveNameAToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,6 +50,7 @@ namespace TextEditer31059
             }
         }
 
+        //上書き保存
         private void SaveSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.fileName != "")
@@ -66,8 +64,28 @@ namespace TextEditer31059
         //新規作成
         private void NewNToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (rtTextArea.Text != "")
+            {
+                string text = "無題への変更内容を保存しますか？";
+                string title = "テキストエディタ";
+
+                //メッセージボックスを表示する
+                DialogResult result = MessageBox.Show(text, title, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    SaveSToolStripMenuItem_Click(sender,e);
+                } else if (result == DialogResult.No)
+                {
+                    rtTextArea.Clear();
+                    this.fileName = "";
+                }
+                
+            } else
+            {
                 rtTextArea.Clear();
                 this.fileName = "";
+            }
+            
         }
 
         private void UndoUToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,7 +115,7 @@ namespace TextEditer31059
 
         private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            rtTextArea.SelectedText = "";
         }
 
         //編集メニュー項目内のマスク処理
@@ -110,6 +128,85 @@ namespace TextEditer31059
             CopyCToolStripMenuItem.Enabled = rtTextArea.SelectionLength > 0;
             //PastingPToolStripMenuItem.Enabled = rtTextArea.CanPaste(myFormat) ? true : false;
             PastingPToolStripMenuItem.Enabled = Clipboard.GetDataObject().GetDataPresent(DataFormats.Rtf);
+            DeleteToolStripMenuItem.Enabled = rtTextArea.SelectionLength > 0;
+        }
+
+        private void ColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog setcolor = new ColorDialog();
+            if (setcolor.ShowDialog() == DialogResult.OK)
+            {
+                //選択された色の取得
+                rtTextArea.SelectionColor = setcolor.Color;
+            }
+        }
+
+        private void FontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialog1 = new FontDialog();
+
+            fontDialog1.ShowColor = true;
+
+            fontDialog1.Font = rtTextArea.Font;
+            fontDialog1.Color = rtTextArea.ForeColor;
+
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                rtTextArea.SelectionFont = fontDialog1.Font;
+                rtTextArea.SelectionColor = fontDialog1.Color;
+            }
+        }
+
+        private void ExitXToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rtTextArea.Text != "")
+            {
+                string text = "無題への変更内容を保存しますか？";
+                string title = "テキストエディタ";
+
+                //メッセージボックスを表示する
+                DialogResult result = MessageBox.Show(text, title, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    SaveSToolStripMenuItem_Click(sender, e);
+                    Application.Exit();
+                } else if (result == DialogResult.No)
+                {
+                    Application.Exit();
+                }
+
+            } else
+            {
+                //アプリ終了
+                Application.Exit();
+            }
+
+        }
+
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (rtTextArea.Text != "")
+            {
+                string text = "無題への変更内容を保存しますか？";
+                string title = "テキストエディタ";
+
+                //メッセージボックスを表示する
+                DialogResult result = MessageBox.Show(text, title, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    SaveSToolStripMenuItem_Click(sender, e);
+                    Application.Exit();
+                } else if (result == DialogResult.Cancel)
+                {
+                    e.Cancel = false;
+                }
+
+            } else
+            {
+                //アプリ終了
+                Application.Exit();
+            }
         }
     }
 }

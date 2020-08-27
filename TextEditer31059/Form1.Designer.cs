@@ -48,8 +48,8 @@
             this.PastingPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.色ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.フォントToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文字コードCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ヘルプHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cdColor = new System.Windows.Forms.ColorDialog();
@@ -69,7 +69,6 @@
             this.rtTextArea.Size = new System.Drawing.Size(800, 426);
             this.rtTextArea.TabIndex = 0;
             this.rtTextArea.Text = "";
-            
             // 
             // menuStrip1
             // 
@@ -152,8 +151,8 @@
             this.PastingPToolStripMenuItem,
             this.DeleteToolStripMenuItem,
             this.toolStripSeparator3,
-            this.色ToolStripMenuItem,
-            this.フォントToolStripMenuItem});
+            this.ColorToolStripMenuItem,
+            this.FontToolStripMenuItem});
             this.EditEToolStripMenuItem.Name = "EditEToolStripMenuItem";
             this.EditEToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.EditEToolStripMenuItem.Text = "編集(&E)";
@@ -217,17 +216,19 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
-            // 色ToolStripMenuItem
+            // ColorToolStripMenuItem
             // 
-            this.色ToolStripMenuItem.Name = "色ToolStripMenuItem";
-            this.色ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.色ToolStripMenuItem.Text = "色...";
+            this.ColorToolStripMenuItem.Name = "ColorToolStripMenuItem";
+            this.ColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ColorToolStripMenuItem.Text = "色...";
+            this.ColorToolStripMenuItem.Click += new System.EventHandler(this.ColorToolStripMenuItem_Click);
             // 
-            // フォントToolStripMenuItem
+            // FontToolStripMenuItem
             // 
-            this.フォントToolStripMenuItem.Name = "フォントToolStripMenuItem";
-            this.フォントToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.フォントToolStripMenuItem.Text = "フォント...";
+            this.FontToolStripMenuItem.Name = "FontToolStripMenuItem";
+            this.FontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.FontToolStripMenuItem.Text = "フォント...";
+            this.FontToolStripMenuItem.Click += new System.EventHandler(this.FontToolStripMenuItem_Click);
             // 
             // 文字コードCToolStripMenuItem
             // 
@@ -251,7 +252,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "テキストエディタ";
-            
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -285,8 +286,8 @@
         private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem 色ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem フォントToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FontToolStripMenuItem;
     }
 }
 
