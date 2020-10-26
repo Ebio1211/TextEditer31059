@@ -208,5 +208,13 @@ namespace TextEditer31059
                 Application.Exit();
             }
         }
+
+        //バージョン情報
+        private void VersionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //VersionForm versionForm = new VersionForm();
+            VersionForm.GetInstance().Show();
+            //versionForm.Show(); //モーダルダイアログとして表示
+        }
     }
 }

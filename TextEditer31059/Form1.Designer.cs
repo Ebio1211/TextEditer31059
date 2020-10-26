@@ -51,9 +51,10 @@
             this.ColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文字コードCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ヘルプHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cdColor = new System.Windows.Forms.ColorDialog();
             this.fdFont = new System.Windows.Forms.FontDialog();
+            this.VersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             this.FileFToolStripMenuItem,
             this.EditEToolStripMenuItem,
             this.文字コードCToolStripMenuItem,
-            this.ヘルプHToolStripMenuItem});
+            this.HelpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -162,7 +163,7 @@
             // 
             this.UndoUToolStripMenuItem.Name = "UndoUToolStripMenuItem";
             this.UndoUToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.UndoUToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.UndoUToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.UndoUToolStripMenuItem.Text = "元に戻す(&U)";
             this.UndoUToolStripMenuItem.Click += new System.EventHandler(this.UndoUToolStripMenuItem_Click);
             // 
@@ -170,20 +171,20 @@
             // 
             this.RedoRToolStripMenuItem.Name = "RedoRToolStripMenuItem";
             this.RedoRToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.RedoRToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.RedoRToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.RedoRToolStripMenuItem.Text = "やり直し(&R)";
             this.RedoRToolStripMenuItem.Click += new System.EventHandler(this.RedoRToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(170, 6);
             // 
             // CutoutTToolStripMenuItem
             // 
             this.CutoutTToolStripMenuItem.Name = "CutoutTToolStripMenuItem";
             this.CutoutTToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.CutoutTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CutoutTToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.CutoutTToolStripMenuItem.Text = "切り取り(&T)";
             this.CutoutTToolStripMenuItem.Click += new System.EventHandler(this.CutoutTToolStripMenuItem_Click);
             // 
@@ -191,7 +192,7 @@
             // 
             this.CopyCToolStripMenuItem.Name = "CopyCToolStripMenuItem";
             this.CopyCToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.CopyCToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CopyCToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.CopyCToolStripMenuItem.Text = "コピー(&C)";
             this.CopyCToolStripMenuItem.Click += new System.EventHandler(this.CopyCToolStripMenuItem_Click);
             // 
@@ -199,7 +200,7 @@
             // 
             this.PastingPToolStripMenuItem.Name = "PastingPToolStripMenuItem";
             this.PastingPToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.PastingPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.PastingPToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.PastingPToolStripMenuItem.Text = "貼り付け(&P)";
             this.PastingPToolStripMenuItem.Click += new System.EventHandler(this.PastingPToolStripMenuItem_Click);
             // 
@@ -207,26 +208,26 @@
             // 
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
             this.DeleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.DeleteToolStripMenuItem.Text = "削除(&D)";
             this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(170, 6);
             // 
             // ColorToolStripMenuItem
             // 
             this.ColorToolStripMenuItem.Name = "ColorToolStripMenuItem";
-            this.ColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ColorToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.ColorToolStripMenuItem.Text = "色...";
             this.ColorToolStripMenuItem.Click += new System.EventHandler(this.ColorToolStripMenuItem_Click);
             // 
             // FontToolStripMenuItem
             // 
             this.FontToolStripMenuItem.Name = "FontToolStripMenuItem";
-            this.FontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.FontToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.FontToolStripMenuItem.Text = "フォント...";
             this.FontToolStripMenuItem.Click += new System.EventHandler(this.FontToolStripMenuItem_Click);
             // 
@@ -236,11 +237,20 @@
             this.文字コードCToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.文字コードCToolStripMenuItem.Text = "文字コード(&C)";
             // 
-            // ヘルプHToolStripMenuItem
+            // HelpToolStripMenuItem
             // 
-            this.ヘルプHToolStripMenuItem.Name = "ヘルプHToolStripMenuItem";
-            this.ヘルプHToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.ヘルプHToolStripMenuItem.Text = "ヘルプ(&H)";
+            this.HelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.VersionToolStripMenuItem});
+            this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
+            this.HelpToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.HelpToolStripMenuItem.Text = "ヘルプ(&H)";
+            // 
+            // VersionToolStripMenuItem
+            // 
+            this.VersionToolStripMenuItem.Name = "VersionToolStripMenuItem";
+            this.VersionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.VersionToolStripMenuItem.Text = "バージョン情報...";
+            this.VersionToolStripMenuItem.Click += new System.EventHandler(this.VersionToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -275,7 +285,7 @@
         private System.Windows.Forms.ToolStripMenuItem ExitXToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EditEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 文字コードCToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ヘルプHToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UndoUToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RedoRToolStripMenuItem;
         private System.Windows.Forms.ColorDialog cdColor;
@@ -288,6 +298,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem ColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem VersionToolStripMenuItem;
     }
 }
 
